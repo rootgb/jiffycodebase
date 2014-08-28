@@ -13,5 +13,6 @@ urlpatterns = patterns('',
 	url(r'^login/$', 'submitform.views.user_login'),
 	url(r'logout/$', 'submitform.views.user_logout'),
 	url(r'^register/$', 'submitform.views.register'),
+	url(r'^createq/$', 'submitform.views.createquestions'),
 		
 )

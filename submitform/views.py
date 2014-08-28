@@ -2,6 +2,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.core.context_processors import csrf
 from django.shortcuts import render_to_response
 from models import Response
+from models import questions
 from django.template import RequestContext
 from forms import *
 from django.contrib.auth import authenticate, login
@@ -76,7 +77,7 @@ def user_login(request):
             if user.is_active:
                 
                 login(request, user)
-                return HttpResponseRedirect('/uploadfile/')
+                return HttpResponseRedirect('/')
             else:
                
                 return HttpResponse("Your account is disabled.")
@@ -110,5 +111,21 @@ def processfile(request):
 	else:
 		form = UploadFileForm()
 		return render_to_response('uploadfile.html', {'form':form}, context_instance=RequestContext(request))
-	
+		
+@login_required()
+def createquestions(request):
+	if request.method == 'POST':
+		c = {}
+		c.update(csrf(request))
+		form = createqform(request.POST)
+		if form.is_valid():
+			p2 = questions(q_1 = form.cleaned_data['q1'] , q_2 = form.cleaned_data['q2'] , q_3 = form.cleaned_data['q3'], code = form.cleaned_data['slug'])
+			p2.save()
+			
+			return render_to_response('thanks.html')
+			
+	else:
+		form = createqform()
+		return render_to_response('createq.html', {'form':form}, context_instance= RequestContext(request))
+
 

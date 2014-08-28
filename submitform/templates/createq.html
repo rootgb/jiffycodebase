@@ -1,0 +1,22 @@
+<html>
+<head>
+<title>Create Q</title>
+</head>
+
+<body>
+
+<p>
+<a href = '/'>home </a>
+<a href = 'logout/'>Logout </a>
+	
+	<h1>hello {{ user.username }}!</h1>
+	<form action = "." method = "POST">{% csrf_token %}
+	<table>
+	{{form.as_table}}
+	</table>
+	<p><input type = "submit" value = "Submit"> </p>
+	</form>
+	
+	
+</body>
+</html>
