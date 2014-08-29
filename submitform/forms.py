@@ -6,12 +6,15 @@ class UploadFileForm(forms.Form):
     title = forms.CharField(max_length=50 , label = '')
     #file = forms.FileField()
 
+
 class createqform(forms.Form):
 	slug = forms.SlugField(max_length = 20)
 	q1 = forms.CharField(max_length=100)
 	q2 = forms.CharField(max_length=100)
 	q3 = forms.CharField(max_length=100)
-	
+
+class entercodeform(forms.Form):
+	slug = forms.SlugField(max_length = 20)
 	
 class UserForm(forms.ModelForm):
     password = forms.CharField(widget=forms.PasswordInput())

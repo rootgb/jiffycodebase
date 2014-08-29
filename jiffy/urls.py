@@ -14,5 +14,6 @@ urlpatterns = patterns('',
 	url(r'logout/$', 'submitform.views.user_logout'),
 	url(r'^register/$', 'submitform.views.register'),
 	url(r'^createq/$', 'submitform.views.createquestions'),
+	url(r'^enterq/$', 'submitform.views.entercode'),
 		
 )

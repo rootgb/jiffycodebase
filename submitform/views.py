@@ -1,20 +1,27 @@
 from django.http import HttpResponseRedirect, HttpResponse
 from django.core.context_processors import csrf
 from django.shortcuts import render_to_response
-from models import Response
+
 from models import questions
 from django.template import RequestContext
 from forms import *
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
+from submitform.models import questions
 
 
 import xlrd
 
 def index(request):
-    context = RequestContext(request)
-    return render_to_response('index.html', context)
+	Questions = questions.people.all()
+	count = 0
+	code_list = []
+	for q in Questions:
+		code_list.append(Questions[count].code)
+		count = count + 1	
+    
+	return render_to_response('index.html', {'code_list' : code_list} , context_instance = RequestContext(request))
 
 def register(request):
     
@@ -127,5 +134,42 @@ def createquestions(request):
 	else:
 		form = createqform()
 		return render_to_response('createq.html', {'form':form}, context_instance= RequestContext(request))
+		
+def entercode(request):
+	if request.method == 'POST':
+		c = {}
+		c.update(csrf(request))
+		form = entercodeform(request.POST)
+		if form.is_valid():
+			enteredcode = form.cleaned_data['slug']
+			p3 = str(enteredcode)
+			Questions = questions.people.get(code = p3)
+			
+			return render_to_response('userq.html', {'Questions' : Questions}, context_instance = RequestContext(request))
+			
+	else:
+		form = entercodeform()
+		return render_to_response('enterq.html', {'form':form}, context_instance= RequestContext(request))
+
+
+# def qdatafromuser(request):
+	# if request.method == 'POST':
+		# c = {}
+		# c.update(csrf(request))
+		# form = response(request.POST)
+		# p3 = response(response1 = form.cleaned_data['response1'] , response2 = form.cleaned_data['response1'] , response3 = form.cleaned_data['response1'])
+		# p3.save()
+		
+		# return render_to_response('Thanks.html')
+		
+		
+
+
+			
+			
+			
+
+
+
 
 

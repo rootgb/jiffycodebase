@@ -1,0 +1,86 @@
+.header{
+	padding:10px;
+}
+.headercont{
+	background-color: rgba(0, 0, 0, 0);
+}
+
+
+.theq{
+	background-color: rgba(255, 255, 255, 0.93);
+}
+
+
+.get{
+	font-family:Maven Pro;
+	font-size:12pt;
+	color:white;
+	font-weight: bold;
+}
+.link{
+	font-family:Ubuntu;
+	font-size:10pt;
+	color:white;
+	text-decoration:none;
+	font-weight:bold;
+}
+.link:hover{
+	color:#cccccc;
+	text-decoration:none;
+}
+
+.linklite{
+	font-family:Ubuntu;
+	font-size:10pt;
+	color:white;
+	text-decoration:none;
+}
+
+.linklitesub{
+	font-family:Ubuntu;
+	font-size:10pt;
+	color:white;
+	text-decoration:none;
+}
+
+.linklite:hover{
+	color:#cccccc;
+	text-decoration:none;
+}
+
+h4.sub{
+	font-family:Lato;
+	font-size: 12pt;
+	
+}
+
+h4.subwhitehead{
+	font-family:Maven Pro;
+	font-size: 14pt;
+	color:white;
+	font-weight:bold;
+}
+h4.subpurp{
+	font-family:Ubuntu;
+	font-size: 11pt;
+	color:#6d1860;
+}
+h4.subwhite{
+	font-family:Ubuntu;
+	font-size: 11pt;
+	color:white;
+}
+
+h4.heading{
+	font-family:Lato;
+	font-size: 12pt;
+	font-weight:bold;
+}
+
+
+.qtext{
+	font-family:Lato;
+	font-size: 13pt;
+	color:white;
+	padding:40px;
+}

@@ -2,13 +2,13 @@ from django.db import models
 from django.contrib.auth.models import User
 
 # Create your models here.
-class Response(models.Model):
-	response_one = models.CharField(max_length = 200)
-	response_two = models.CharField(max_length = 200)
-	response_three= models.CharField(max_length = 200)
+# class Response(models.Model):
+	# response_one = models.CharField(max_length = 200)
+	# response_two = models.CharField(max_length = 200)
+	# response_three= models.CharField(max_length = 200)
 	
-	def __str__(self):
-		return self.response_one
+	# def __str__(self):
+		# return self.response_one
 
 class questions(models.Model):
 	code = models.SlugField(max_length = 10)

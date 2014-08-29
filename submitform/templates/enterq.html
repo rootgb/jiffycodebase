@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Create Q</title>
+<title>Enter Q</title>
 <style>
 h1 {
     font-family: "Levenim MT";
@@ -13,14 +13,10 @@ h1 {
 <body>
 
 <div>
-<h1><a href="/"> hello {{ user.username }}! Welcome to Q admin panel</a></h1>
+
 <p>Just fill the form and click done. You are good to go.</p>
 </div>
-
-<p><a href = '/'>Home </a></p>
-<p><a href = 'logout/'>Logout </a></p>
 	
-	<h1>hello {{ user.username }}!</h1>
 	<form action = "." method = "POST">{% csrf_token %}
 	<table>
 	{{form.as_table}}
